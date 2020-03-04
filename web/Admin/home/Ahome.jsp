@@ -40,7 +40,7 @@ and open the template in the editor.
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../Employee Registration/kea_employeereg.jsp">Add New Panchayathu</a>
-                                <a class="dropdown-item" href="../../">View Employee Details</a>
+                                <a class="dropdown-item" href="../../ViewIp">View Employee Details</a>
                                 
                             </div>
                         </li>

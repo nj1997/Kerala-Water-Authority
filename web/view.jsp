@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container">
-            <img style="width: 30%" src="Banner_Ed1 (1).gif">
+            <img style="width: 30%" src="img/Banner_Ed1 (1).gif">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../home/Ahome.jsp">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Admin/home/Ahome.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -63,23 +63,22 @@
         <div class="tab">
         </div>
         <div>
-            <p><form action="../../logout" method="post">
+            <p><form action="logout" method="post">
                 <button  type="submit"class="  btn btn-primary">LogOut </button></form></p>
         </div>
     </nav>
     <div class="frm">
-        <center> <h3>User Detail</h3></center>
+        <center> <h3>Employee Detail</h3></center>
     </div>
     <table class="table table-hover ">
 
 
         <thead
             <tr>
-                <td><b>Panchayathu Number</b></td>
+               <td><b>Panchayathu Number</b></td>
                 <td><b>Panchayathu Name</b></td>
                 <td><b>Mobile Number</b></td>
                 <td><b>Date for Registration</b></td>
-            
             </tr>
         </thead>
         <%
@@ -101,9 +100,8 @@
             <td><%=pList.get(0)%></td>
             <td><%=pList.get(1)%></td>
             <td><%=pList.get(2)%></td>
-            <td><%=pList.get(3)%></td>
-            
-           
+              <td><%=pList.get(3)%></td>
+       
         </tr>
         <%
                 }
@@ -127,7 +125,7 @@
             margin-top: 1%;
         }
     </style>
-  
+
 
 
 </body>
