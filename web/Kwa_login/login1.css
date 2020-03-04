@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 20, 2020, 12:35:41 PM
+    Author     : nibu
+*/
+
+.form-container {
+    position: absolute;
+    top: 20vh;
+ border: #fff;
+ padding: 50px;
+ border-radius: 10px;
+ box-shadow: 0px 0px 10px 0px #000;
+}
+
+
+/*@media only screen and(max-width : 767px){
+    .navbar-nav .ml-auto{
+        background: #fff;
+    }
+}*/
+btn-primary{
+    background: cyan;
+    padding: 10px 24px;
+    text-align: center;
+     font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.field-icon {
+  float: right;
+  margin-right: 8px;
+  margin-top: -23px;
+  position: relative;
+  z-index: 2;
+  cursor:pointer;
+}
