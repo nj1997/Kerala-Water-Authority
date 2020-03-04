@@ -60,7 +60,7 @@ public class ViewIp extends HttpServlet {
 
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-            String query = "SELECT empreg_id,panchayathu_name,mobno,date FROM KWA.kwa_empreg";
+            String query = "SELECT empreg_id,panchayathu_name,mobno,date FROM KWA.kwa_empreg where status=3";
 
             System.out.println("query " + query);
             st = conn.createStatement();
