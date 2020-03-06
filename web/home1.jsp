@@ -52,7 +52,7 @@
 
 
             <div>
-                <p><form action="../../logout" method="post">
+                <p><form action="logout" method="post">
                     <button  type="submit"class="  btn btn-primary">LogOut </button></form></p>
             </div>
         </nav>
@@ -121,7 +121,7 @@
                 $(document).ready(function () {
             $("button[name='btn']").click(function () {
                 
-               $.post("remove", 
+               $.post("btn1", 
                {id: $("button[name='btn']").val().toString()},       
         function (data, status) {
                    
