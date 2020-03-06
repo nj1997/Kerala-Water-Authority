@@ -35,11 +35,11 @@ public class Cwaterreg extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
 
     throws ServletException,IOException{
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        response.setContentType("text/html;charset=UTF-8");
+       PrintWriter out = response.getWriter();
         Connection conn = null;
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "KWA";
@@ -56,7 +56,7 @@ public class Cwaterreg extends HttpServlet {
 
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-            String query = "SELECT empreg_id,panchayathu_name,mobno,date FROM KWA.kwa_empreg where status=3";
+            String query = "SELECT liter,Price FROM Water_details";
 
             System.out.println("query " + query);
             st = conn.createStatement();
@@ -71,8 +71,7 @@ public class Cwaterreg extends HttpServlet {
 //                out.println(rs.getString(4));
                 al.add(rs.getString(1));
                 al.add(rs.getString(2));
-                al.add(rs.getString(3));
-                al.add(rs.getString(4));
+             
               
 
                 System.out.println("al :: " + al);
@@ -80,15 +79,15 @@ public class Cwaterreg extends HttpServlet {
             }
 
             request.setAttribute("piList", pid_list);
-            RequestDispatcher view = request.getRequestDispatcher("view.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("home1.jsp");
             view.forward(request, response);
             conn.close();
             System.out.println("Disconnected!");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | ServletException | IOException e) {
         }
+        
     }
-
-    /**
+/**
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
