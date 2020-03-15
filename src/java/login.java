@@ -87,7 +87,7 @@ public class login extends HttpServlet {
 
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", _name);
-                        session.setMaxInactiveInterval(30);
+                        //session.setMaxInactiveInterval(30);
                         response.sendRedirect("Consumer/Home/chome.jsp");
 
                     }else if(rs1.next()){

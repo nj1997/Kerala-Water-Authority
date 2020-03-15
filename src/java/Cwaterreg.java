@@ -56,7 +56,7 @@ public class Cwaterreg extends HttpServlet {
 
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-            String query = "SELECT liter,Price FROM Water_details";
+            String query = "SELECT Liter,Price FROM Water_details";
 
             System.out.println("query " + query);
             st = conn.createStatement();
