@@ -94,13 +94,13 @@ public class login extends HttpServlet {
                         
                          HttpSession session = request.getSession(true);
                         session.setAttribute("user", _name);
-                        session.setMaxInactiveInterval(30);
+                        //session.setMaxInactiveInterval(30);
                         response.sendRedirect("Admin/home/Ahome.jsp");
                         
                     }else if(rs2.next()){
                           HttpSession session = request.getSession(true);
                         session.setAttribute("user", _name);
-                        session.setMaxInactiveInterval(30);
+                        //session.setMaxInactiveInterval(30);
                         response.sendRedirect("Employee/Ehome/Ehome.jsp");
                     }else{
                         alert("Hello! I am an alert box!!");

@@ -134,8 +134,8 @@ btn-primary{
 .navbar-toggler {
     padding: 1px 5px;
     font-size: 18px;
-    line-height: 0.3;
-    background: #fff;
+    line-height: 0.3;background:#e4e0c4;
+    background-color: dark;
 }
 }
  $(".animated").addClass("delay-1s");

@@ -40,7 +40,7 @@ and open the template in the editor.
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../../Employee/Search Customer Details/index.jsp">Search Consumer Details</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="../../waterorderdetails">Customers Water Orders</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
