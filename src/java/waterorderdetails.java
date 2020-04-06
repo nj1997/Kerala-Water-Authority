@@ -57,7 +57,7 @@ public class waterorderdetails extends HttpServlet {
 
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-            String query = "select mobno,liter from water_order;";
+            String query = "select mobno,liter from water_order where status=1;";
 
             System.out.println("query " + query);
             st = conn.createStatement();
@@ -80,7 +80,7 @@ public class waterorderdetails extends HttpServlet {
             }
 
             request.setAttribute("piList", pid_list);
-            RequestDispatcher view = request.getRequestDispatcher("Employee/water order/water order.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("waterorders.jsp");
             view.forward(request, response);
             conn.close();
             System.out.println("Disconnected!");

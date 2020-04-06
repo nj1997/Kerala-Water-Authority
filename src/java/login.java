@@ -39,6 +39,16 @@ public class login extends HttpServlet {
                     Connection Conn;
 
                     Conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/KWA", "root", "password");
+                    
+                    //vehicle cornor
+                     String sql5 = "SELECT * FROM KWA.login where username=? and password=? and status=5";
+                      
+                    PreparedStatement pst5 = (PreparedStatement) Conn.prepareStatement(sql5);
+                    pst5.setString(1, _name);
+                    pst5.setString(2, pass);
+                      ResultSet rs5 = pst5.executeQuery();
+                    
+                    
 
                     //customer pannel
                     PreparedStatement ps = (PreparedStatement) Conn.prepareStatement("SELECT * FROM KWA.login where username=? and password=? and  status=2");
@@ -53,6 +63,9 @@ public class login extends HttpServlet {
                     pst1.setString(1, _name);
                     pst1.setString(2, pass);
                       ResultSet rs1 = pst1.executeQuery();
+                      
+                      
+                   
                     
                     //Employee pannel
                      String sql3 = "SELECT * FROM KWA.login where username=? and password=? and status=3";
@@ -102,7 +115,15 @@ public class login extends HttpServlet {
                         session.setAttribute("user", _name);
                         //session.setMaxInactiveInterval(30);
                         response.sendRedirect("Employee/Ehome/Ehome.jsp");
-                    }else{
+                    }else if(rs5.next()){
+                        HttpSession session = request.getSession(true);
+                        session.setAttribute("user", _name);
+                        //session.setMaxInactiveInterval(30);
+                        response.sendRedirect("Vehicle/home/Vhome.jsp");
+                        
+                    }
+                    
+                    else{
                         alert("Hello! I am an alert box!!");
                     }
                 }
@@ -111,6 +132,7 @@ public class login extends HttpServlet {
                 out.println("Exception :" + ex.getMessage());
             }
         }
+        
 
     }
 

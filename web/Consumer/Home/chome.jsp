@@ -39,8 +39,9 @@ and open the template in the editor.
                                 Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../../Employee Registration/kea_employeereg.jsp">Add New Panchayathu</a>
-                                <a class="dropdown-item" href="../../Cwaterreg">View Employee Details</a>
+                               
+                                <a class="dropdown-item" href="../../Cwaterreg">Shopping Cart</a>
+                                 <a class="dropdown-item" href="../../orderconfirm">Order Details</a>
 
                             </div>
                         </li>
@@ -60,6 +61,7 @@ and open the template in the editor.
                 <p><form action="../../logout" method="post">
                     <button  type="submit"class="  btn btn-primary">LogOut </button></form></p>
             </div>
+          
         </nav>
 
 
@@ -118,7 +120,7 @@ and open the template in the editor.
 		if (session != null) {
 			if (session.getAttribute("user") != null) {
 				String name = (String) session.getAttribute("user");
-				//out.print("Hello, " + name + "  Welcome to ur Profile");
+				out.print("Hello, " + name + "  Welcome to ur Profile");
 			} else {
 				response.sendRedirect("../../home.html");
 			}
@@ -127,7 +129,7 @@ and open the template in the editor.
  
 
 
-
+  
 </body>
 
 </html>

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.sun.tools.ws.wsdl.document.Output;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -40,6 +41,9 @@ public class Cwaterreg extends HttpServlet {
     throws ServletException,IOException{
         response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
+         out.println
+          (", Employee number:" + request.getAttribute("name") + "</B>");
+         
         Connection conn = null;
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "KWA";

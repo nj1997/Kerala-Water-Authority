@@ -1,22 +1,22 @@
 <%-- 
-    Document   : searchview
-    Created on : 3 Mar, 2020, 12:04:07 PM
+    Document   : waterorders
+    Created on : 31 Mar, 2020, 8:10:56 PM
     Author     : nibu
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Iterator"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
-<%ResultSet resultset = null;%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<head>
-    <title>Water Order Details</title>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Water Order Details</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet"href="style.css">
@@ -28,14 +28,11 @@
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container">
-            <img style="width: 30%" src="../../img/Banner_Ed1 (1).gif">
+            <img style="width: 30%" src="img/Banner_Ed1 (1).gif">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -79,7 +76,8 @@
                 <button  type="submit"class="  btn btn-primary">LogOut </button></form></p>
         </div>
     </nav>
-    <div class="frm">
+        
+            <div class="frm">
         <center> <h3>Order Details</h3></center>
     </div>
     <table class="table table-hover ">
@@ -119,41 +117,10 @@
                     <%!String url = "jdbc:mysql://localhost:3306/KWA";%>
                     <%!String user = "root";%>
                     <%!String psw = "password";%>
-                    <form action="#">
-                        <%
-                            Connection con = null;
-                            PreparedStatement ps = null;
-                            try {
-                                Class.forName(driverName);
-                                con = DriverManager.getConnection(url, user, psw);
-                                String sql = "SELECT * FROM KWA.kwa_empreg;";
-                                ps = con.prepareStatement(sql);
-                                ResultSet rs = ps.executeQuery();
-                        %>
-                        <p>Select Vehicle  :
-                            <select>
-                                <%
-                                    while (rs.next()) {
-                                        String fname = rs.getString("panchayathu_name");
-                                %>
-                                <option value="<%=fname%>"><%=fname%></option>
-                                <%
-                                    }
-                                %>
-                            </select>
-                        </p>
-                        <%
-                            } catch (SQLException sqe) {
-                                out.println(sqe);
-                            }
-                        %>
-                    </form>
+
 
                 </div>
 
-            </td>
-            <td>
-                <button type="button" class="btn btn-success">Success</button>
             </td>
 
 
@@ -181,10 +148,84 @@
             margin-top: 1%;
         }
     </style>
+    <form></form>
+
+    <form action="test" method="POST">
+
+        <div class="row">
+
+
+            <div class="col" style="margin-top: 25px">
+                <h4 style="margin-left: 20px"> Name</h4>
 
 
 
 
+                <div style="margin-left: 20px;">
+                    <%
+                      //  String myName = (String) session.getAttribute("user");
 
-</body>
+                        Connection con = null;
+                        PreparedStatement ps = null;
+                        try {
+                            Class.forName(driverName);
+                            con = DriverManager.getConnection(url, user, psw);
+                            String sql = "SELECT * FROM KWA.water_order where status=1;";
+                            ps = con.prepareStatement(sql);
+                            ResultSet rs = ps.executeQuery();
+                    %>
+                    <div style="margin-left: 50px">
+                        <select name="cars"id="lit" style="width: 250px"class="custom-select">
+                            <option selected>Select Customer</option>
+                            <%
+                                while (rs.next()) {
+                                    String fname = rs.getString("mobno");
+
+                                
+                            %>
+
+                            <option  value="<%=fname%>"><%=fname%></option>
+                            <%
+                                }
+                            %>
+
+                        </select>
+                    </div>
+
+                    <%
+                        } catch (SQLException sqe) {
+                            out.println(sqe);
+                        }
+                    %>
+
+                </div></div>
+
+
+          
+           
+
+            <div class="col" style="margin-top: 65px">
+
+                <input class="btn btn-success btn-block" style="width: 200px" type="submit"value="Submit">
+            </div>
+        </div>
+
+
+    </form>
+        
+        
+        
+<%
+		if (session != null) {
+			if (session.getAttribute("user") != null) {
+				String name = (String) session.getAttribute("user");
+                               
+				out.print("Hello, " + name + "  Welcome to ur Profile");
+			} else {
+				response.sendRedirect("home.html");
+			}
+		}
+	%>
+
+    </body>
 </html>
