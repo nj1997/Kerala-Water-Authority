@@ -40,10 +40,8 @@ and open the template in the editor.
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                
-                                <a class="dropdown-item" href="../../Cwaterreg">Shopping Cart</a>
-                                 <a class="dropdown-item" href="../../orderconfirm">Order Details</a>
-                                      <a class="dropdown-item" href="../../servicecheck">Water connection services</a>
-                                      <a class="dropdown-item" href="../Payment/index1.jsp">Payment</a>
+                                <a class="dropdown-item" href="../../acceptrequest">Consumers Water Requests</a>
+                               
 
                             </div>
                         </li>
@@ -118,17 +116,7 @@ and open the template in the editor.
 </div>
 
 
- <%
-		if (session != null) {
-			if (session.getAttribute("user") != null) {
-				String name = (String) session.getAttribute("user");
-				out.print("Hello, " + name + "  Welcome to ur Profile");
-			} else {
-				response.sendRedirect("../../home.html");
-			}
-		}
-	%>
- 
+
 
 
   
